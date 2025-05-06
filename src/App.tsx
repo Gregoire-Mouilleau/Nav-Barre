@@ -7,6 +7,7 @@ import SeaSecurityMap from "./pages/SeaSecurityMap";
 import WindNavigationMap from "./pages/WindNavigationMap";
 import SailMap from "./pages/SailMap";
 import { marinKnotsQuestions } from './data/quizQuestions';
+import BoatUpgrades from './pages/BoatUpgrades';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/quiz/securite" element={<SeaSecurityMap />} />
             <Route path="/quiz/navigation" element={<WindNavigationMap />} />
             <Route path="/quiz/voiles" element={<SailMap />} />
+            <Route path="/boat-upgrades" element={<BoatUpgrades />} />
           </Routes>
         </main>
       </div>
