@@ -11,16 +11,7 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    assetsInlineLimit: 4096,
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html')
-      },
-      output: {
-        assetFileNames: 'assets/[name]-[hash][extname]',
-        chunkFileNames: 'js/[name]-[hash].js',
-        entryFileNames: 'js/[name]-[hash].js'
-      }
-    }
+    assetsDir: 'assets',
+    copyPublicDir: true
   }
 });

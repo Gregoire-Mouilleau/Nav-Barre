@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
 
-// Importation des images avec @
-import noeudsMarins from '@/assets/Noeuds_Marins.png';
-import noeudsMarinsComplete from '@/assets/Noeuds_Marins_complété.png';
-import partiesBateau from '@/assets/Parties_Bateau.png';
-import partiesBateauComplete from '@/assets/Parties_Bateau_complété.png';
-import securiteMer from '@/assets/Sécurité_Mer.png';
-import securiteMerComplete from '@/assets/Sécurité_Mer_fond_complété.png';
-import ventNavigation from '@/assets/Vent_Navigation.png';
-import ventNavigationComplete from '@/assets/Vent_Navigation_complété.png';
-import voile from '@/assets/voile.png';
-import voileComplete from '@/assets/Voile_complété.png';
+// Chemins des images
+const noeudsMarins = '/images/Noeuds_Marins.png';
+const noeudsMarinsComplete = '/images/Noeuds_Marins_complété.png';
+const partiesBateau = '/images/Parties_Bateau.png';
+const partiesBateauComplete = '/images/Parties_Bateau_complété.png';
+const securiteMer = '/images/Sécurité_Mer.png';
+const securiteMerComplete = '/images/Sécurité_Mer_fond_complété.png';
+const ventNavigation = '/images/Vent_Navigation.png';
+const ventNavigationComplete = '/images/Vent_Navigation_complété.png';
+const voile = '/images/Voile.png';
+const voileComplete = '/images/Voile_complété.png';
 
 export default function Home() {
   const navigationCards = [
