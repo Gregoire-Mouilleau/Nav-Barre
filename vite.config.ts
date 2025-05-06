@@ -1,29 +1,26 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { fileURLToPath } from 'url';
-import { dirname, resolve } from 'path';
-import * as path from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import { resolve } from 'path';
 
 export default defineConfig({
   plugins: [react()],
   resolve: {
-    alias: [
-      { find: '@', replacement: path.resolve(__dirname, 'src') }
-    ]
+    alias: {
+      '@': resolve(__dirname, 'src')
+    }
   },
   build: {
     outDir: 'dist',
-    emptyOutDir: true,
-    minify: 'esbuild',
-    assetsDir: 'assets',
+    assetsInlineLimit: 4096,
     rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html')
+      },
       output: {
-        assetFileNames: 'assets/[name].[hash][ext]'
+        assetFileNames: 'assets/[name]-[hash][extname]',
+        chunkFileNames: 'js/[name]-[hash].js',
+        entryFileNames: 'js/[name]-[hash].js'
       }
     }
-  },
-  publicDir: 'public'
+  }
 });
