@@ -3,20 +3,17 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  base: './',
   build: {
     outDir: 'dist',
     emptyOutDir: true,
-    sourcemap: false,
+    minify: 'esbuild',
     rollupOptions: {
       output: {
-        assetFileNames: 'assets/[name].[ext]',
+        assetFileNames: 'assets/[name].[hash][ext]',
         chunkFileNames: 'js/[name].[hash].js',
-        entryFileNames: 'js/[name].[hash].js',
-      },
+        entryFileNames: 'js/[name].[hash].js'
+      }
     }
-  },
-  server: {
-    port: 3000,
-    open: true
   }
 });
