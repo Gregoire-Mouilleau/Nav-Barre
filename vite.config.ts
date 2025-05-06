@@ -1,28 +1,22 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  resolve: {
-    alias: {
-      '@': '/src'
-    }
-  },
-  optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom']
-  },
-  assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg'],
   build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+    sourcemap: false,
     rollupOptions: {
-      input: {
-        main: '/index.html'
-      }
+      output: {
+        assetFileNames: 'assets/[name].[ext]',
+        chunkFileNames: 'js/[name].[hash].js',
+        entryFileNames: 'js/[name].[hash].js',
+      },
     }
   },
-  base: './',
   server: {
-    watch: {
-      usePolling: true
-    }
+    port: 3000,
+    open: true
   }
-})
+});
