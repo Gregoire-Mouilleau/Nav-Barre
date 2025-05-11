@@ -67,7 +67,7 @@ export default function RacingMap() {
     <div 
       className="min-h-screen flex items-center justify-center pt-16"
       style={{
-        backgroundImage: "url('/assets/fonds/Noeuds_Marins_fond.png')", // Modifié
+        backgroundImage: "url('./fonds/Noeuds_Marins_fond.png')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

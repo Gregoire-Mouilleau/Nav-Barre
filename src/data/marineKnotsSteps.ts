@@ -14,19 +14,13 @@ export const knotSteps: KnotStep[] = [
   {
     id: 1,
     type: 'image',
-    imageUrl: "/assets/quiz/noeud1.png",
+    title: "Le Nœud en Huit",
+    description: "Identifiez ce nœud de base",
+    imageUrl: "/assets/noeud_de_huit.png",
     correctAnswer: "noeud en huit"
   },
   {
     id: 2,
-    type: 'image',
-    title: "Le Nœud de Chaise",
-    description: "Identifiez ce nœud essentiel",
-    imageUrl: "/assets/quiz/noeud_de_chaise.png",
-    correctAnswer: "noeud de chaise"
-  },
-  {
-    id: 3,
     type: 'quiz',
     title: "Utilisation des Nœuds",
     description: "Testez vos connaissances sur l'utilisation pratique des nœuds",
@@ -44,15 +38,15 @@ export const knotSteps: KnotStep[] = [
     ]
   },
   {
-    id: 4,
+    id: 3,
     type: 'image',
-    title: "Le Nœud de Huit",
-    description: "Identifiez ce nœud d'arrêt",
-    imageUrl: "/src/assets/noeud_de_huit.png",
-    correctAnswer: "noeud de huit"
+    title: "Le Nœud de Chaise",
+    description: "Identifiez ce nœud essentiel",
+    imageUrl: "/assets/nœud_de_chaise.png",
+    correctAnswer: "noeud de chaise"
   },
   {
-    id: 5,
+    id: 4,
     type: 'quiz',
     title: "Sécurité Maritime",
     description: "Les nœuds essentiels pour la sécurité",
@@ -63,6 +57,14 @@ export const knotSteps: KnotStep[] = [
         correctIndex: 2
       }
     ]
+  },
+  {
+    id: 5,
+    type: 'image',
+    title: "Le Nœud de Taquet",
+    description: "Identifiez ce nœud d'amarrage",
+    imageUrl: "/assets/nœud_de_taquet.png",
+    correctAnswer: "noeud de taquet"
   },
   {
     id: 6,
@@ -85,10 +87,10 @@ export const knotSteps: KnotStep[] = [
   {
     id: 7,
     type: 'image',
-    title: "Le Nœud de Taquet",
-    description: "Identifiez ce nœud d'amarrage",
-    imageUrl: "/src/assets/nœud_de_taquet.png",
-    correctAnswer: "noeud de taquet"
+    title: "Le Nœud de Chaise Double",
+    description: "Un nœud avancé",
+    imageUrl: "/assets/nœud_de_chaise.png",
+    correctAnswer: "noeud de chaise double"
   },
   {
     id: 8,
@@ -128,14 +130,6 @@ export const knotSteps: KnotStep[] = [
   },
   {
     id: 10,
-    type: 'image',
-    title: "Le Nœud de Chaise Double",
-    description: "Un nœud avancé",
-    imageUrl: "/assets/quiz/noeud_de_chaise_double.png",
-    correctAnswer: "noeud de chaise double"
-  },
-  {
-    id: 11,
     type: 'quiz',
     title: "Navigation Traditionnelle",
     description: "Les techniques ancestrales",
@@ -148,7 +142,7 @@ export const knotSteps: KnotStep[] = [
     ]
   },
   {
-    id: 12,
+    id: 11,
     type: 'quiz',
     title: "Compétition et Course",
     description: "Les nœuds pour la performance",
@@ -166,7 +160,7 @@ export const knotSteps: KnotStep[] = [
     ]
   },
   {
-    id: 13,
+    id: 12,
     type: 'quiz',
     title: "Les Cordages Modernes",
     description: "Nouvelles technologies des cordages",
@@ -184,7 +178,7 @@ export const knotSteps: KnotStep[] = [
     ]
   },
   {
-    id: 14,
+    id: 13,
     type: 'quiz',
     title: "Manœuvres Avancées",
     description: "Techniques professionnelles",
@@ -197,9 +191,9 @@ export const knotSteps: KnotStep[] = [
     ]
   },
   {
-    id: 15,
+    id: 14,
     type: 'quiz',
-    title: "Certification Finale",
+    title: "Certification Finale Partie 1",
     description: "Validez vos connaissances",
     questions: [
       {
@@ -211,7 +205,15 @@ export const knotSteps: KnotStep[] = [
         question: "Quel est le nœud le plus polyvalent en navigation ?",
         answers: ["Nœud de chaise", "Nœud en huit", "Tour mort", "Nœud plat"],
         correctIndex: 0
-      },
+      }
+    ]
+  },
+  {
+    id: 15,
+    type: 'quiz',
+    title: "Certification Finale Partie 2",
+    description: "Dernières questions",
+    questions: [
       {
         question: "Dans quel cas ne jamais utiliser un nœud plat ?",
         answers: ["Pour les amarres", "Pour les voiles", "Pour joindre deux cordages de sécurité", "Pour le stockage"],

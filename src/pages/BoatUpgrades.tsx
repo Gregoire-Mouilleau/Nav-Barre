@@ -22,15 +22,15 @@ const boatLevels: BoatLevel[] = [
     name: "Optimist",
     description: "Le voilier idéal pour débuter, stable et facile à manœuvrer",
     stats: { speed: 10, resistance: 10, maneuverability: 10 },
-    imageUrl: "/assets/ameliorations/optimist.png" // Modifié
+    imageUrl: "/assets/ameliorations/optimist.png" // Correction du chemin
   },
   {
     id: 2,
-    cost: 25,
-    name: "Laser Pico",
-    description: "Un dériveur léger parfait pour progresser",
-    stats: { speed: 20, resistance: 20, maneuverability: 20 },
-    imageUrl: "/src/assets/ameliorations/laser_pico.png"
+    cost: 50,
+    name: "Laser",
+    description: "Un dériveur léger et réactif",
+    stats: { speed: 15, resistance: 12, maneuverability: 15 },
+    imageUrl: "/assets/ameliorations/Laser.png" // Correction du chemin
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const boatLevels: BoatLevel[] = [
     name: "Laser",
     description: "Le dériveur olympique, rapide et technique",
     stats: { speed: 35, resistance: 30, maneuverability: 35 },
-    imageUrl: "/src/assets/ameliorations/laser.png"
+    imageUrl: "/assets/ameliorations/laser.png"
   },
   {
     id: 4,
@@ -46,7 +46,7 @@ const boatLevels: BoatLevel[] = [
     name: "420",
     description: "Voilier de compétition en double, excellent pour la régate",
     stats: { speed: 45, resistance: 40, maneuverability: 45 },
-    imageUrl: "/src/assets/ameliorations/420.png"
+    imageUrl: "/assets/ameliorations/420.png"
   },
   {
     id: 5,
@@ -54,7 +54,7 @@ const boatLevels: BoatLevel[] = [
     name: "First 25",
     description: "Un voilier habitable performant pour la croisière côtière",
     stats: { speed: 60, resistance: 55, maneuverability: 60 },
-    imageUrl: "/src/assets/ameliorations/first25.png"
+    imageUrl: "/assets/ameliorations/first25.png"
   },
   {
     id: 6,
@@ -62,7 +62,7 @@ const boatLevels: BoatLevel[] = [
     name: "Class 40",
     description: "Un monocoque de course au large",
     stats: { speed: 75, resistance: 70, maneuverability: 75 },
-    imageUrl: "/src/assets/ameliorations/class40.png"
+    imageUrl: "/assets/ameliorations/class40.png"
   },
   {
     id: 7,
@@ -70,7 +70,7 @@ const boatLevels: BoatLevel[] = [
     name: "IMOCA 60",
     description: "Le voilier du Vendée Globe, conçu pour la course au large en solitaire",
     stats: { speed: 90, resistance: 85, maneuverability: 90 },
-    imageUrl: "/src/assets/ameliorations/imoca60.png"
+    imageUrl: "/assets/ameliorations/imoca60.png"
   },
   {
     id: 8,
@@ -78,9 +78,29 @@ const boatLevels: BoatLevel[] = [
     name: "Yacht",
     description: "Yacht de luxe moderne, élégant et rapide",
     stats: { speed: 100, resistance: 100, maneuverability: 100 },
-    imageUrl: "/src/assets/ameliorations/yacht.png"
+    imageUrl: "/assets/ameliorations/yacht.png"
   }
 ];
+
+const StatBar = ({ value, label, color }: { value: number; label: string; color: string }) => (
+  <div className="mb-6">
+    <div className="flex justify-between items-center mb-2">
+      <span className="text-white text-lg font-bold">{label}</span>
+      <span className="text-white font-bold">{value}%</span>
+    </div>
+    <div className="h-6 bg-gray-700 rounded-full">
+      <div
+        className="h-full rounded-full transition-all duration-500 relative overflow-hidden"
+        style={{
+          width: `${value}%`,
+          backgroundColor: color
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-white/20 to-white/10" />
+      </div>
+    </div>
+  </div>
+);
 
 export default function BoatUpgrades() {
   const [currentLevel, setCurrentLevel] = useState(() => {
@@ -111,11 +131,13 @@ export default function BoatUpgrades() {
   };
 
   return (
-    <div className="min-h-screen p-8" style={{ 
+    <div className="min-h-screen pb-40 mb-20" style={{ // Ajout de pb-40 et mb-20 pour plus d'espace en bas
       background: `url(${treasureMapBg})`,
-      backgroundSize: 'contain',
+      backgroundSize: 'cover',
       backgroundPosition: 'center',
-      backgroundAttachment: 'fixed'
+      backgroundRepeat: 'no-repeat',
+      backgroundAttachment: 'fixed',
+      marginBottom: '200px' // Ajout d'une marge en bas de 200px
     }}>
       <div className="max-w-7xl mx-auto backdrop-blur rounded-xl shadow-2xl p-8" 
         style={{ 
@@ -135,21 +157,14 @@ export default function BoatUpgrades() {
           </h2>
 
           <div className="flex w-full gap-12 items-start mt-16">
-            <div className="p-8 rounded-xl bg-gray-800" style={{ width: '50%', marginLeft: '2rem' }}>
+            <div className="p-8 rounded-xl bg-gray-800/90" style={{ width: '50%', marginLeft: '2rem' }}>
               <p className="text-lg text-blue-400 font-semibold mb-8">
                 {currentBoat.description}
               </p>
-              <div className="space-y-6">
-                {Object.entries(currentBoat.stats).map(([stat, value]) => (
-                  <div key={stat} className="stat-bar-container">
-                    <div className="stat-label">{stat.toUpperCase()}</div>
-                    <div className="relative">
-                      <div className={`stat-bar ${stat}`} style={{ width: `${value}%` }}>
-                        <span className="stat-value">{value}/100</span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+              <div className="space-y-4">
+                <StatBar value={currentBoat.stats.speed} label="VITESSE" color="#3b82f6" />
+                <StatBar value={currentBoat.stats.resistance} label="RÉSISTANCE" color="#10b981" />
+                <StatBar value={currentBoat.stats.maneuverability} label="MANŒUVRABILITÉ" color="#8b5cf6" />
               </div>
             </div>
 

@@ -34,7 +34,7 @@ export const boatPartSteps: BoatPartStep[] = [
     type: 'image',
     title: "La Proue",
     description: "Identifiez cette partie du bateau",
-    imageUrl: "/src/assets/proue.png",
+    imageUrl: "/assets/proue.png",
     correctAnswer: "proue"
   },
   {
@@ -83,7 +83,7 @@ export const boatPartSteps: BoatPartStep[] = [
     type: 'image',
     title: "Le Safran",
     description: "Identifiez cet élément",
-    imageUrl: "/src/assets/safran.png",
+    imageUrl: "/assets/safran.png",
     correctAnswer: "safran"
   },
   {
@@ -132,7 +132,7 @@ export const boatPartSteps: BoatPartStep[] = [
     type: 'image',
     title: "Le Mât",
     description: "Structure verticale",
-    imageUrl: "/src/assets/mat.png",
+    imageUrl: "/assets/mat.png",
     correctAnswer: "mat"
   },
   {
@@ -181,7 +181,7 @@ export const boatPartSteps: BoatPartStep[] = [
     type: 'image',
     title: "La Bôme",
     description: "Support horizontal",
-    imageUrl: "/src/assets/bome.png",
+    imageUrl: "/assets/bome.png",
     correctAnswer: "bome"
   },
   {

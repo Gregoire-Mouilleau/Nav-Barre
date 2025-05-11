@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-// Modifier les imports d'images
+// Imports des images depuis /assets
 import noeudsMarins from '/assets/Noeuds_Marins.png';
 import noeudsMarinsComplete from '/assets/Noeuds_Marins_complété.png';
 import partiesBateau from '/assets/Parties_Bateau.png';
