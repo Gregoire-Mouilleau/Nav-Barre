@@ -7,6 +7,7 @@ export default function SeaSecurityMap() {
   const [scores, setScores] = useState<{ [key: number]: number }>({});
   const [moduleCompleted, setModuleCompleted] = useState(false);
   const [started, setStarted] = useState(false);
+  const [showFinalScore, setShowFinalScore] = useState(false);
 
   const handleStepComplete = (stepScore: number) => {
     const newScores = {
@@ -27,10 +28,24 @@ export default function SeaSecurityMap() {
       if (hasPassedModule) {
         localStorage.setItem('moduleSecurityComplete', 'true');
       }
+      setShowFinalScore(true);
     } else {
       setCurrentStep(prev => prev + 1);
     }
   };
+
+  if (showFinalScore) {
+    return (
+      <div className="p-6 bg-white/90 rounded-xl text-center">
+        <button
+          onClick={() => window.location.href = '/'}
+          className="px-6 py-3 rounded-lg text-white bg-blue-500 hover:bg-blue-600"
+        >
+          Retour à l'accueil
+        </button>
+      </div>
+    );
+  }
 
   return started ? (
     <div 

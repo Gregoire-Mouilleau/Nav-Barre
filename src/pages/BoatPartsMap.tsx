@@ -9,6 +9,7 @@ export default function BoatPartsMap() {
   const [scores, setScores] = useState<{ [key: number]: number }>({});
   const [moduleCompleted, setModuleCompleted] = useState(false);
   const [started, setStarted] = useState(false);
+  const [showFinalScore, setShowFinalScore] = useState(false);
 
   const handleStepComplete = (stepScore: number) => {
     const newScores = {
@@ -29,10 +30,26 @@ export default function BoatPartsMap() {
       if (hasPassedModule) {
         localStorage.setItem('moduleBoatComplete', 'true');
       }
+      setShowFinalScore(true);
     } else {
       setCurrentStep(prev => prev + 1);
     }
   };
+
+  if (showFinalScore) {
+    return (
+      <div className="p-6 bg-white/90 rounded-xl text-center">
+        <h2 className="text-2xl font-bold mb-4">Score Final</h2>
+        <p className="text-xl mb-6">Votre score est de {Object.values(scores).reduce((sum, score) => sum + score, 0)} points.</p>
+        <button
+          onClick={() => window.location.href = '/'}
+          className="px-6 py-3 rounded-lg text-white bg-blue-500 hover:bg-blue-600"
+        >
+          Retour à l'accueil
+        </button>
+      </div>
+    );
+  }
 
   return started ? (
     <div className="min-h-screen flex items-center justify-center pt-16 relative"

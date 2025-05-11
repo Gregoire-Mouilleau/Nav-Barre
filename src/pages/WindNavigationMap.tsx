@@ -34,9 +34,10 @@ export default function WindNavigationMap() {
   };
 
   if (showFinalScore) {
-    const totalQuestions = windSteps.reduce((total, step) => total + step.questions.length, 0);
+    const totalQuestions = windSteps.length;
     const passThreshold = Math.ceil(totalQuestions / 2);
-    const hasPassedModule = Object.values(scores).reduce((sum, score) => sum + score, 0) >= passThreshold;
+    const totalScore = Object.values(scores).reduce((sum, score) => sum + score, 0);
+    const hasPassedModule = totalScore >= passThreshold;
 
     return (
       <div className="p-6 bg-white/90 rounded-xl text-center">
@@ -50,12 +51,10 @@ export default function WindNavigationMap() {
             : "❌ Vous n'avez pas obtenu le score minimum requis."}
         </div>
         <button
-          onClick={() => window.location.reload()}
-          className={`px-6 py-3 rounded-lg text-white ${
-            hasPassedModule ? 'bg-green-500 hover:bg-green-600' : 'bg-blue-500 hover:bg-blue-600'
-          }`}
+          onClick={() => window.location.href = '/'}
+          className="px-6 py-3 rounded-lg text-white bg-blue-500 hover:bg-blue-600"
         >
-          {hasPassedModule ? "Module suivant" : "Recommencer le module"}
+          Retour à l'accueil
         </button>
       </div>
     );
