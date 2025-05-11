@@ -29,7 +29,7 @@ a:hover {
 body {
   margin: 0;
   padding: 0;
-  background-image: url('./assets/fond.png');
+  background-image: url('/assets/fond.png'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -112,7 +112,7 @@ button:focus-visible {
 }
 
 
-/* 🌙 Mode sombre */
+/* 🌙 Mode sombre 
 @media (prefers-color-scheme: dark) {
   :root {
     color: #ffffff;
@@ -124,7 +124,7 @@ button:focus-visible {
   button {
     background-color: #ffffff;
   }
-}
+}*/
 
 @keyframes wave {
   0%, 100% {
