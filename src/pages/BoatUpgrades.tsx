@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import boatImage from '/src/assets/boat.png';
-import treasureMapBg from '/src/assets/treasure-map-bg.jpg'; 
+import treasureMapBg from '/assets/treasure-map-bg.jpg'; 
 
 interface BoatLevel {
   id: number;
@@ -22,7 +22,7 @@ const boatLevels: BoatLevel[] = [
     name: "Optimist",
     description: "Le voilier idéal pour débuter, stable et facile à manœuvrer",
     stats: { speed: 10, resistance: 10, maneuverability: 10 },
-    imageUrl: "/src/assets/ameliorations/optimist.png"
+    imageUrl: "/assets/ameliorations/optimist.png" // Modifié
   },
   {
     id: 2,

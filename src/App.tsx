@@ -6,8 +6,9 @@ import BoatPartsMap from "./pages/BoatPartsMap";
 import SeaSecurityMap from "./pages/SeaSecurityMap";
 import WindNavigationMap from "./pages/WindNavigationMap";
 import SailMap from "./pages/SailMap";
-import { marinKnotsQuestions } from './data/quizQuestions';
-import BoatUpgrades from './pages/BoatUpgrades';
+import BoatUpgrades from "./pages/BoatUpgrades";
+import RacingMap from "./pages/RacingMap";
+import SimulationMap from "./pages/SimulationMap";
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
             <Route path="/quiz/navigation" element={<WindNavigationMap />} />
             <Route path="/quiz/voiles" element={<SailMap />} />
             <Route path="/boat-upgrades" element={<BoatUpgrades />} />
+            <Route path="/quiz/racing" element={<RacingMap />} />
+            <Route path="/quiz/simulation" element={<SimulationMap />} />
           </Routes>
         </main>
       </div>

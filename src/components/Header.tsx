@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import logo from '/src/assets/logo.png';
+import logo from '/assets/logo.png';
 
 export default function Header() {
   const location = useLocation();

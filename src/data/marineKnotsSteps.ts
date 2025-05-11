@@ -13,33 +13,16 @@ export interface KnotStep {
 export const knotSteps: KnotStep[] = [
   {
     id: 1,
-    type: 'quiz',
-    title: "Les Nœuds de Base - Étape 1",
-    description: "Les trois nœuds fondamentaux",
-    questions: [
-      {
-        question: "Quel nœud est utilisé pour amarrer un bateau ?",
-        answers: ["Tour mort et deux demi-clés", "Nœud plat", "Nœud de chaise", "Nœud en huit"],
-        correctIndex: 0
-      },
-      {
-        question: "Quel nœud permet de faire une boucle qui ne se resserre pas ?",
-        answers: ["Nœud de chaise", "Nœud de huit", "Nœud plat", "Nœud de cabestan"],
-        correctIndex: 0
-      },
-      {
-        question: "Pour quel usage utilise-t-on le nœud de huit ?",
-        answers: ["Arrêter un cordage", "Amarrer", "Faire une boucle", "Relier deux cordages"],
-        correctIndex: 0
-      }
-    ]
+    type: 'image',
+    imageUrl: "/assets/quiz/noeud1.png",
+    correctAnswer: "noeud en huit"
   },
   {
     id: 2,
     type: 'image',
     title: "Le Nœud de Chaise",
     description: "Identifiez ce nœud essentiel",
-    imageUrl: "/src/assets/nœud_de_chaise.png",
+    imageUrl: "/assets/quiz/noeud_de_chaise.png",
     correctAnswer: "noeud de chaise"
   },
   {
@@ -65,7 +48,7 @@ export const knotSteps: KnotStep[] = [
     type: 'image',
     title: "Le Nœud de Huit",
     description: "Identifiez ce nœud d'arrêt",
-    imageUrl: "/src/assets/noeud_de_huit.png", // Il faudrait l'image
+    imageUrl: "/src/assets/noeud_de_huit.png",
     correctAnswer: "noeud de huit"
   },
   {
@@ -148,7 +131,7 @@ export const knotSteps: KnotStep[] = [
     type: 'image',
     title: "Le Nœud de Chaise Double",
     description: "Un nœud avancé",
-    imageUrl: "/src/assets/nœud_de_chaise.png",
+    imageUrl: "/assets/quiz/noeud_de_chaise_double.png",
     correctAnswer: "noeud de chaise double"
   },
   {
