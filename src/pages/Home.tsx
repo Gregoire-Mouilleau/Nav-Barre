@@ -17,6 +17,8 @@ import sailingSimu from '/assets/sailing_simu.png';
 import sailingSimuComplete from '/assets/sailing_simu_complete.png';
 
 export default function Home() {
+  const isNavigationCompleted = localStorage.getItem('moduleWindComplete') === 'true';
+
   const navigationCards = [
     { 
       title: "Nœuds Marins", 
@@ -49,13 +51,15 @@ export default function Home() {
         ? boatRacingComplete 
         : boatRacing,
       path: "/quiz/racing",
-      isLocked: localStorage.getItem('moduleWindComplete') !== 'true'
+      isLocked: !isNavigationCompleted
     },
     { 
       title: "Simulation", 
-      image: localStorage.getItem('moduleSimulationComplete') === 'true' ? sailingSimuComplete : sailingSimu,
+      image: localStorage.getItem('moduleSimulationComplete') === 'true' 
+        ? sailingSimuComplete 
+        : sailingSimu,
       path: "/quiz/simulation",
-      isLocked: localStorage.getItem('moduleWindComplete') !== 'true'
+      isLocked: !isNavigationCompleted
     }
   ];
 
@@ -99,24 +103,33 @@ export default function Home() {
         {/* Nouvelle rangée pour les nouvelles cartes */}
         <div className="flex justify-center gap-12">
           {navigationCards.slice(5).map((card, index) => (
-            <Link
-              key={`row3-${index}`}
-              to={card.path}
-              className={card.isLocked ? 'pointer-events-none opacity-50' : ''}
-            >
-              <img
-                src={card.image}
-                alt={card.title}
-                className="navigation-icon transition-transform duration-300 hover:scale-110"
-              />
-              {card.isLocked && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-white bg-black/50 px-2 py-1 rounded">
-                    Terminez d'abord Navigation et Vent
-                  </span>
-                </div>
-              )}
-            </Link>
+            <div key={`row3-${index}`} className="relative">
+              <Link
+                to={card.isLocked ? '#' : card.path}
+                className={card.isLocked ? 'pointer-events-none relative' : ''}
+                onClick={(e) => {
+                  if (card.isLocked) {
+                    e.preventDefault();
+                  }
+                }}
+              >
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  className={`navigation-icon transition-transform duration-300 ${
+                    card.isLocked ? 'opacity-50' : 'hover:scale-110'
+                  }`}
+                />
+                {card.isLocked && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-black/75 text-white px-4 py-2 rounded-lg text-center">
+                      <p className="font-pirates text-lg mb-1">🔒 Module verrouillé</p>
+                      <p className="text-sm">Terminez d'abord Navigation et Vent</p>
+                    </div>
+                  </div>
+                )}
+              </Link>
+            </div>
           ))}
         </div>
       </div>
